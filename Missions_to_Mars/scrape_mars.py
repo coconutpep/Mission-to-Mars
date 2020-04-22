@@ -2,6 +2,8 @@
 from bs4 import BeautifulSoup as bs
 import pandas as pd
 from splinter import Browser
+from flask import Flask, render_template
+import pymongo
 
 def scrape():
     #Scrape NASA Mars News Site
@@ -91,3 +93,4 @@ def scrape():
         'hemisphere_dict':hemisphere_image_urls
     }
     return dictionary
+
