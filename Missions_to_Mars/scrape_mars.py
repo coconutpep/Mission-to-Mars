@@ -2,8 +2,6 @@
 from bs4 import BeautifulSoup as bs
 import pandas as pd
 from splinter import Browser
-from flask import Flask, render_template, redirect
-import pymongo
 
 #def function to scrape data
 def scrape():
@@ -94,22 +92,3 @@ def scrape():
         'hemisphere_dict':hemisphere_image_urls
     }
     return dictionary
-
-#set up flask app
-app = Flask(__name__)
-
-#create Mongo connection
-mongo = PyMongo(app, uri="mongodb://localhost:27017/mars_db")
-
-@app.route('/')
-def home():
-    pass
-
-@app.route("/scrape")
-def scraper():
-
-    return redirect("/", code=302)
-
-
-if __name__ == "__main__":
-    app.run(debug=True)
