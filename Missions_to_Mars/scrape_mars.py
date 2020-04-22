@@ -99,9 +99,17 @@ def scrape():
 app = Flask(__name__)
 
 #create Mongo connection
-conn = 'mongodb://localhost:27017'
-client = pymongo.MongoClient(conn)
-#connect to db/create db
-db = client.mars_db
-#Drop collection
-db.data.drop()
+mongo = PyMongo(app, uri="mongodb://localhost:27017/mars_db")
+
+@app.route('/')
+def home():
+    pass
+
+@app.route("/scrape")
+def scraper():
+
+    return redirect("/", code=302)
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
