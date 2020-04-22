@@ -17,6 +17,28 @@
             <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
         </div>
 
+        <div class='row'>
+            <h2>Latest Mars News</h2>
+            <h3>{{dictionary.news_title}}</h3>
+            <p>{{dictionary.news_p}}</p>
+        </div>
+        
+        <div class='row'>
+            <div class='col-12 col-md-9'>
+                <h2>Featured Mars Image</h2>
+                <img src={{dictionary.featured_image_url}} alt="Featured Image url">
+            </div>
+            
+            <div class='col-12 col-md-3'>
+                <h3>Mars Facts</h3>
+                <table>{{dictionary.table}}</table>
+            </div>
+        </div>
+
+        <div class='row'>
+            
+        </div>
+
     </div>
 </body>
 
