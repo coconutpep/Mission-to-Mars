@@ -82,3 +82,12 @@ def scrape():
         browser.visit(url5)
     #Close browser
     browser.quit
+
+    dictionary = {
+        'news_title':news_title,
+        'news_p':news_p,
+        'featured_img_url':featured_image_url,
+        'table':tables[0],
+        'hemisphere_dict':hemisphere_image_urls
+    }
+    return dictionary
