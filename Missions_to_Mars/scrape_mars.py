@@ -2,7 +2,7 @@
 from bs4 import BeautifulSoup as bs
 import pandas as pd
 from splinter import Browser
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect
 import pymongo
 
 #def function to scrape data
