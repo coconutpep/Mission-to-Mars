@@ -5,6 +5,7 @@ from splinter import Browser
 from flask import Flask, render_template
 import pymongo
 
+#def function to scrape data
 def scrape():
     #Scrape NASA Mars News Site
     #Set the executable path
@@ -94,3 +95,13 @@ def scrape():
     }
     return dictionary
 
+#set up flask app
+app = Flask(__name__)
+
+#create Mongo connection
+conn = 'mongodb://localhost:27017'
+client = pymongo.MongoClient(conn)
+#connect to db/create db
+db = client.mars_db
+#Drop collection
+db.data.drop()
