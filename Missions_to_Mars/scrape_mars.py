@@ -2,16 +2,18 @@
 from bs4 import BeautifulSoup as bs
 import pandas as pd
 from splinter import Browser
+import time
 
 #def function to scrape data
 def scrape():
     #Scrape NASA Mars News Site
     #Set the executable path
-    executable_path = {'executable_path':'../../chromedriver.exe'}
+    executable_path = {'executable_path':'chromedriver.exe'}
     browser = Browser('chrome', **executable_path, headless=False)
     #Set the url to visit
     url = 'https://mars.nasa.gov/news/'
     browser.visit(url)
+    time.sleep(3)
     #Set up BeautifulSoup object
     html = browser.html
     soup = bs(html, 'html.parser')
@@ -30,22 +32,15 @@ def scrape():
     soup2 = bs(html2, 'html.parser')
     #Scrape main image
     img_style = soup2.find('article', class_='carousel_item')['style']
-    img_path = img_style[22:(len(img_style)-2)]
+    img_path = img_style[23:(len(img_style)-3)]
     featured_image_url = url2 + img_path
-
-    #Set spliter to Mars Weather Twitter
-    #url3 = 'https://twitter.com/marswxreport?lang=en'
-    #browser.visit(url3)
-    #Reset Beautiful Soup
-    #html3 = browser.html
-    #soup3 = bs(html3, 'html.parser')
-    #Scrape weather information
-    #soup3.body.find_all('span', class_='css-901oao css-16my406z').text
-    #This should work but bs can't seem to parse twitter's page
 
     #Scrape Mars Facts page tables
     url4 = 'https://space-facts.com/mars/'
     tables = pd.read_html(url4)
+    table = tables[0]
+    table.rename(columns={0:'Stat', 1:'Value'}, inplace=True)
+    table
 
     #scrape hemispere images from USGS
     #reset splinter 
@@ -82,13 +77,13 @@ def scrape():
         #Return to homepage
         browser.visit(url5)
     #Close browser
-    browser.quit
+    browser.quit()
 
     dictionary = {
         'news_title':news_title,
         'news_p':news_p,
         'featured_img_url':featured_image_url,
-        'table':tables[0],
-        'hemisphere_dict':hemisphere_image_urls
+        'table':table.to_dict("records"),
+        'hemiList':hemisphere_image_urls
     }
     return dictionary

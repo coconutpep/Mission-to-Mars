@@ -26,12 +26,55 @@
         <div class='row'>
             <div class='col-12 col-md-9'>
                 <h2>Featured Mars Image</h2>
-                <img src='{{dictionary.featured_image_url}}' alt="Featured Image url">
+                <img src="{{ dictionary.featured_img_url }}" alt="Featured Image url"/>
             </div>
             
             <div class='col-12 col-md-3'>
                 <h3>Mars Facts</h3>
-                <table>{{dictionary.table}}</table>
+                <table class='table'>
+                    <thead>
+                        <tr>
+                            <th>Stat</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+                    <tr>
+                        <td>{{dictionary.table[0].Stat}}</td>
+                        <td>{{dictionary.table[0].Value}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{dictionary.table[1].Stat}}</td>
+                        <td>{{dictionary.table[1].Value}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{dictionary.table[2].Stat}}</td>
+                        <td>{{dictionary.table[2].Value}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{dictionary.table[3].Stat}}</td>
+                        <td>{{dictionary.table[3].Value}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{dictionary.table[4].Stat}}</td>
+                        <td>{{dictionary.table[4].Value}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{dictionary.table[5].Stat}}</td>
+                        <td>{{dictionary.table[5].Value}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{dictionary.table[6].Stat}}</td>
+                        <td>{{dictionary.table[6].Value}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{dictionary.table[7].Stat}}</td>
+                        <td>{{dictionary.table[7].Value}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{dictionary.table[8].Stat}}</td>
+                        <td>{{dictionary.table[8].Value}}</td>
+                    </tr>
+                </table>
             </div>
         </div>
 
@@ -39,20 +82,20 @@
             <h2>Mars Hemispheres</h2>
             <hr>
             <div class="card" style='width:50%'>
-                <img src='{{dictionary.hemisphere_dict[0].img_url}}' alt='{{dictionary.hemisphere_dict[0].title}}'>
-                <h5>{{dictionary.hemisphere_dict[0].title}}</h5>
+                <img src='{{dictionary.hemiList[0].img_url}}' alt='{{dictionary.hemiList[0].title}}'/>
+                <h5>{{dictionary.hemiList[0].title}}</h5>
             </div>
             <div class="card" style='width:50%'>
-                <img src='{{dictionary.hemisphere_dict[1].img_url}}' alt='{{dictionary.hemisphere_dict[1].title}}'>
-                <h5>{{dictionary.hemisphere_dict[1].title}}</h5>
+                <img src='{{dictionary.hemiList[1].img_url}}' alt='{{dictionary.hemiList[1].title}}'/>
+                <h5>{{dictionary.hemiList[1].title}}</h5>
             </div>
             <div class="card" style='width:50%'>
-                <img src='{{dictionary.hemisphere_dict[2].img_url}}' alt='{{dictionary.hemisphere_dict[2].title}}'>
-                <h5>{{dictionary.hemisphere_dict[2].title}}</h5>
+                <img src='{{dictionary.hemiList[2].img_url}}' alt='{{dictionary.hemiList[2].title}}'/>
+                <h5>{{dictionary.hemiList[2].title}}</h5>
             </div>
             <div class="card" style='width:50%'>
-                <img src='{{dictionary.hemisphere_dict[3].img_url}}' alt='{{dictionary.hemisphere_dict[3].title}}'>
-                <h5>{{dictionary.hemisphere_dict[3].title}}</h5>
+                <img src='{{dictionary.hemiList[3].img_url}}' alt='{{dictionary.hemiList[3].title}}'/>
+                <h5>{{dictionary.hemiList[3].title}}</h5>
             </div>
         </div>
 

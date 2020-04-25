@@ -9,13 +9,13 @@ mongo = PyMongo(app, uri="mongodb://localhost:27017/mars_app")
 
 @app.route("/")
 def index():
-    dictionary = mongo.db.data.find_one()
+    dictionary = mongo.db.mars.find_one()
     return render_template("index.html", dictionary=dictionary)
 
 
 @app.route("/scrape")
 def scraper():
-    dictionary = mongo.db.data
+    dictionary = mongo.db.mars
     dictionary_data = scrape_mars.scrape()
     dictionary.update({}, dictionary_data, upsert=True)
     return redirect("/", code=302)
