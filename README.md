@@ -8,3 +8,4 @@ App used to scrape Mars information from the web
 Jupyter Notebook used to test scraping
 ## [Templates](Mission_to_Mars/templates)
 HTML and CSS used to format webpage
+![WebPage Screenshot](Missions_to_Mars/screenshot.PNG "Screenshot")
